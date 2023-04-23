@@ -17,26 +17,10 @@ public class Monomial
     {
         return new Monomial(this.exponent,this.coefficient.scalarAdd(m.getCoefficient()));
     }
-/*    public Monomial add(int n, NewInteger i)
-    {
-        if(this.getExponent() == n)
-        {
-            return new Monomial(this.getExponent(), i.scalarAdd(this.getCoefficient()));
-        }
-        return null;
-    }
-    public Monomial add(int n, NewRational r)
-    {
-        if(this.getExponent() == n)
-        {
-            return new Monomial(this.getExponent(), r.scalarAdd(this.getCoefficient()));
-        }
-        return null;
-    }*/
 
     public Monomial mul(Monomial m)
     {
-        return new Monomial(this.getExponent()+m.getExponent(),this.getCoefficient().scalarMul(m.getCoefficient()));
+        return new Monomial(this.getExponent()+m.getExponent(),this.coefficient.scalarMul(m.getCoefficient()));
     }
 
     public NewScalar evaluate(NewScalar s)
@@ -61,13 +45,13 @@ public class Monomial
     }
     public boolean equals(Object o)
     {
-        return this.equals(o);
-    }
-    public boolean equals(Monomial m)
-    {
-        return this.getCoefficient().equals(m.getCoefficient()) && this.getExponent() == m.getExponent();
-    }
+        if (o instanceof Monomial) {
+            return (this.getExponent() == ((Monomial)o).getExponent() &&
+                    this.getCoefficient().equals(((Monomial)o).getCoefficient()));
+        }
 
+        return false;
+    }
     public String toString()
     {
         return this.getCoefficient() + "X^" + this.getExponent();

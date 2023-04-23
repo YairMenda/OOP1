@@ -24,27 +24,27 @@ public class NewRational implements NewScalar
     {
         return this.getNumerator()/this.getDenominator();
     }
-    public NewRational scalarAdd(NewScalar s)
+    public NewScalar scalarAdd(NewScalar s)
     {
-        return this.scalarAdd(s);
+        return s.scalarAdd(this);
     }
-    public NewRational scalarAdd(NewInteger s)
+    public NewScalar scalarAdd(NewInteger s)
     {
         return new NewRational(this.getNumerator()+(this.getDenominator()*s.getValue()),this.getDenominator());
     }
-    public NewRational scalarAdd(NewRational s)
+    public NewScalar scalarAdd(NewRational s)
     {
         return new NewRational(this.getNumerator()*s.getDenominator()+this.getDenominator()*s.getNumerator(),this.getDenominator()*s.getDenominator());
     }
-    public NewRational scalarMul(NewScalar s)
+    public NewScalar scalarMul(NewScalar s)
     {
-        return this.scalarMul(s);
+        return s.scalarMul(this);
     }
-    public NewRational scalarMul(NewInteger s)
+    public NewScalar scalarMul(NewInteger s)
     {
         return new NewRational(this.getNumerator()*s.getValue(),this.getDenominator());
     }
-    public NewRational scalarMul(NewRational s)
+    public NewScalar scalarMul(NewRational s)
     {
         return new NewRational(this.getNumerator()*s.getNumerator(),this.getDenominator()*s.getDenominator());
     }
@@ -65,17 +65,13 @@ public class NewRational implements NewScalar
         return 0;
     }
 
-    public boolean equals(Object o)
-    {
-        return this.equals(o);
-    }
-    public boolean equals(NewInteger o)
-    {
-        return (this.getValue() == (double)o.getValue());
-    }
-    public boolean equals(NewRational o)
-    {
-        return this.getValue() == o.getValue();
+    public boolean equals(Object o) {
+        if (o instanceof NewInteger)
+            return this.getValue() == ((NewInteger) o).getValue();
+        else if (o instanceof NewRational) {
+            return this.getValue() == ((NewRational) o).getValue();
+        }
+        return false;
     }
 
     public int gcd(int m , int n)
