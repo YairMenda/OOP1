@@ -1,0 +1,5 @@
+package Polynomials
+
+class Polynomial
+{
+}
