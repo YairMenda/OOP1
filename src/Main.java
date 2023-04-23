@@ -15,16 +15,17 @@ public class Main {
         System.out.println(n1.sign());
         System.out.println(n2.equals(new NewInteger(3)));
         System.out.println(n2.scalerNeg());
-        System.out.println(n2);*/
+        System.out.println(n2);
+        System.out.println(n2.equals(new NewInteger(-3)));*/
 
         Monomial m1 = new Monomial(2,n1);
         Monomial m2 = new Monomial(2,n2);
-        System.out.println(m1.add(m2));
-/*        System.out.println(m1.mul(m2));
+/*        System.out.println(m1.add(m2));
+        System.out.println(m1.mul(m2));
         System.out.println(m1.evaluate(new NewInteger(3)));
-        System.out.println(m2.evaluate(new NewRational(2,1)));
-        System.out.println(m1.derivative());
+        System.out.println(m2.evaluate(new NewRational(3,1)));
         System.out.println(m2.derivative());
+        System.out.println(m1.derivative());
         System.out.println(m1.equals(m2));
         System.out.println(m1);
         System.out.println(m2);*/
