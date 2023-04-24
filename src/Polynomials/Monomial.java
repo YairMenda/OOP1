@@ -14,7 +14,9 @@ public class Monomial
 
     public Monomial add(Monomial m)
     {
-        return new Monomial(this.exponent,this.coefficient.scalarAdd(m.getCoefficient()));
+        if(this.getExponent() == m.getExponent())
+           return new Monomial(this.exponent,this.coefficient.scalarAdd(m.getCoefficient()));
+        return null;
     }
 
     public Monomial mul(Monomial m)
@@ -48,16 +50,38 @@ public class Monomial
     }
     public String toString()
     {
-        if (this.getCoefficient().equals(new NewInteger(0)))
+        if(this.getCoefficient().equals(new NewInteger(0)))
+        {
             return "";
-
-        if (this.exponent > 1){
-            return this.getCoefficient() + "X^" + this.getExponent();
         }
-        if (this.exponent == 0)
-            return this.getCoefficient() + "";
+        if(this.getCoefficient().equals(new NewInteger(1)))
+        {
+            if(this.getExponent() == 1)
+                return "X";
+            else if(this.getExponent() == 0)
+            {
+                return this.getCoefficient().toString();
+            }
+            else
+                return "X^" + this.getExponent();
+        }
+        if(this.getCoefficient().equals(new NewInteger(-1)))
+        {
+            if(this.getExponent() == 1)
+                return "-X";
+            else if(this.getExponent() == 0)
+            {
+                return this.getCoefficient().toString();
+            }
+            else
+                return "-X^" + this.getExponent();
+        }
+        if(this.getExponent() == 0)
+            return this.getCoefficient().toString();
+        if(this.getExponent() == 1)
+            return this.getCoefficient() + "X";
 
-        return  this.getCoefficient() + "X";
+        return this.getCoefficient().toString() + "X^" + this.getExponent();
     }
     public Scalar getCoefficient() {
         return coefficient;

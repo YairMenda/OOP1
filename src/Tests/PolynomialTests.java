@@ -15,7 +15,7 @@ public class PolynomialTests
     public void addPolTest()
     {
         Polynomial polToAdd = Polynomial.build("2 2 -1");
-        Polynomial polToAdd2 = Polynomial.build("2/3 4 -4");
+        Polynomial polToAdd2 = Polynomial.build("4 2/3 -4");
         System.out.println("(" + p.toString() + ")" + " + " + "(" + polToAdd.toString() + ")" + " = " + p.add(polToAdd));
         System.out.println("(" + p.toString() + ")" + " + " + "(" + polToAdd2.toString() + ")" + " = " + p.add(polToAdd2));
     }
@@ -23,7 +23,7 @@ public class PolynomialTests
     public void mulPolTest()
     {
         Polynomial polToMul = Polynomial.build("2 2 -1");
-        Polynomial polToMul2 = Polynomial.build("2/3 4 -4");
+        Polynomial polToMul2 = Polynomial.build("3/4 4 -4");
         System.out.println("(" + p.toString() + ")" + " * " + "(" + polToMul.toString() + ")" + " = " + p.mul(polToMul));
         System.out.println("(" + p.toString() + ")" + " * " + "(" + polToMul2.toString() + ")" + " = " + p.mul(polToMul2));
     }
@@ -45,7 +45,7 @@ public class PolynomialTests
 
     public void equalsTest()
     {
-        Polynomial p1 = Polynomial.build("18 6 7 2 -9 3");
+        Polynomial p1 = Polynomial.build("18 6 7 2 -9 2");
         Polynomial p2 = Polynomial.build("36/2 18/3 14/2 2 -9 6/3");
         System.out.println(p.toString() + " equals " + p1.toString() + " ? " + p.equals(p1));
         System.out.println(p1.toString() + " equals " + p2.toString() + " ? " + p1.equals(p2));

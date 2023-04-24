@@ -117,7 +117,15 @@ public class Polynomial {
 
      for(Monomial m: this.getTreeMap().values())
      {
-         res +=  m.toString() + " ";
+         if(m.sign() == 1)
+         {
+             if(m.getExponent() != 0)
+                res += " + " + m.toString();
+             else
+                 res += m.toString();
+         }
+         else
+             res += m.toString();
      }
 
      return res;

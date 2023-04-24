@@ -3,11 +3,15 @@ import Polynomials.Polynomial;
 import Scalars.NewInteger;
 import Scalars.NewRational;
 import Scalars.Scalar;
+import Tests.IntegerTests;
+import Tests.MonomialTests;
+import Tests.PolynomialTests;
+import Tests.RationalTests;
 
 public class Main {
     public static void main(String[] args)
     {
-        Scalar n1 = new NewInteger(2);
+/*        Scalar n1 = new NewInteger(2);
         Scalar n2 = new NewRational(12,-4);
         System.out.println(n1.scalarAdd(n2));
         System.out.println(n1.scalarMul(n2));
@@ -45,7 +49,43 @@ public class Main {
         p2 = Polynomial.build("5 2 -1 2");
         System.out.println(p1.equals(p2));
         System.out.println(p1);
-        System.out.println(p2);
+        System.out.println(p2);*/
 
+        IntegerTests it = new IntegerTests();
+        MonomialTests mt = new MonomialTests();
+        PolynomialTests pt = new PolynomialTests();
+        RationalTests rt = new RationalTests();
+
+        it.initTest(5);
+        mt.initTest(3, new NewInteger(2));
+        pt.initTest();
+        rt.initTest(2,4);
+
+        it.addTestInteger();
+        it.mulTestInteger();
+        it.negTestInteger();
+        it.powerTestInteger();
+        it.equalsTestInteger();
+        it.signTestInteger();
+
+        mt.addTestMonomial();
+        mt.mulTestMonomial();
+        mt.derivativeTestMonomial();
+        mt.evaluateTestMonomial();
+        mt.equalsTestMonomial();
+
+        pt.addPolTest();
+        pt.mulPolTest();
+        pt.scalarEvaluateTest();
+        pt.derivativeTest();
+        pt.equalsTest();
+        pt.toStringTest();
+
+        rt.addTestRational();
+        rt.mulTestRational();
+        rt.negTestRational();
+        rt.powerTestRational();
+        rt.signTestRational();
+        rt.equalsTestRational();
     }
 }
