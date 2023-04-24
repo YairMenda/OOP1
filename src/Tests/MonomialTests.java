@@ -22,31 +22,25 @@ public class MonomialTests
     //Test
     public void mulTestMonomial()
     {
-        Scalar tomul = new NewRational(1 , 2);
-        System.out.println("should print 1/2  * " + obj.getValue() + " equals ? " + obj.scalarMul(tomul));
+        Monomial tomul = new Monomial(2, new NewInteger(7));
+        System.out.println("should print 1/2  * " + obj + " equals ? " + obj.mul(tomul));
     }
 
     //Test
-    public void negTestMonomial()
+    public void derivativeTestMonomial()
     {
-        System.out.println("should print -" + obj.getValue() + "  equals ? " + obj.scalarNeg());
+        System.out.println("should print the exponent * " + obj + "^ -1" +  " equals ? " + obj.derivative());
     }
 
     //Test
-    public void powerTestMonomial(int exponent)
+    public void evaluateTestMonomial()
     {
-        System.out.println("should print  " + obj.getValue() +"^"+ exponent +" equals ? " + obj.scalarPower(exponent));
+        System.out.println("should print the obj while set X to value " + obj.evaluate(new NewInteger(4)));
     }
-
-    //Test
-    public void signTestMonomial(int exponent)
+    public void equalsTestMonomial()
     {
-        System.out.println("should print 1 if positive 0 if 0 -1 is negative " + " equals ? " + obj.sign());
-    }
-    //Test
-    public void equalsTestMonomial(int value)
-    {
-        System.out.println("should print true if " + obj.getValue() + " equals  " + value + obj.equals(new NewInteger(value)));
+        Monomial isEqual = new Monomial(2 , new NewInteger(5));
+        System.out.println("should print true if the to Monomials are equals " + obj.equals(isEqual));
     }
 
     //NO NEED FOR AFTER
