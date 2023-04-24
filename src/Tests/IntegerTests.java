@@ -31,20 +31,21 @@ public class IntegerTests {
     }
 
     //Test
-    public void powerTestInteger(int exponent)
+    public void powerTestInteger()
     {
-        System.out.println("should print  " + obj.getValue() +"^"+ exponent +" equals ? " + obj.scalarPower(exponent));
+        System.out.println("should print  " + obj.getValue() +"^"+ 3 +" equals ? " + obj.scalarPower(3));
     }
 
     //Test
-    public void signTestInteger(int exponent)
+    public void signTestInteger()
     {
         System.out.println("should print 1 if positive 0 if 0 -1 is negative " + " equals ? " + obj.sign());
     }
     //Test
-    public void equalsTestInteger(int value)
+    public void equalsTestInteger()
     {
-        System.out.println("should print true if " + obj.getValue() + " equals  " + value + obj.equals(new NewInteger(value)));
+
+        System.out.println("should print true if " + obj.getValue() + " equals  " + 7 + obj.equals(new NewInteger(7)));
     }
 
     //NO NEED FOR AFTER

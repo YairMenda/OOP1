@@ -31,19 +31,19 @@ public class RationalTests {
     }
 
     //Test
-    public void powerTestRational(int exponent)
+    public void powerTestRational()
     {
-        System.out.println("should print  " + obj.getValue() +"^"+ exponent +" equals ? " + obj.scalarPower(exponent));
+        System.out.println("should print  " + obj.getValue() +"^"+ 2 +" equals ? " + obj.scalarPower(2));
     }
 
     //Test
-    public void signTestRational(int exponent)
+    public void signTestRational()
     {
         System.out.println("should print 1 if positive 0 if 0 -1 is negative " + " equals ? " + obj.sign());
     }
     //Test
-    public void equalsTestRational(int value1 , int value2)
+    public void equalsTestRational()
     {
-        System.out.println("should print true if " + obj.getValue() + " equals  " + value1 +"/" + value2 + obj.equals(new NewRational(value1 , value2)));
+        System.out.println("should print true if " + obj.getValue() + " equals  " + 3 +"/" + 4 + obj.equals(new NewRational(3 ,4)));
     }
 }
