@@ -1,6 +1,6 @@
 package Scalars;
-import static java.lang.Math.*;
-public class NewInteger implements NewScalar
+
+public class NewInteger implements Scalar
 {
     private int number;
 
@@ -13,32 +13,32 @@ public class NewInteger implements NewScalar
         return this.number;
     }
 
-    public NewScalar scalarAdd(NewScalar s)
+    public Scalar scalarAdd(Scalar s)
     {
        return s.scalarAdd(this);
     }
-    public NewScalar scalarAdd(NewInteger s)
+    public Scalar scalarAdd(NewInteger s)
     {
         return new NewInteger(this.getValue() + s.getValue());
     }
-    public NewScalar scalarAdd(NewRational s)
+    public Scalar scalarAdd(NewRational s)
     {
         return new NewRational((this.getValue() *s.getDenominator() + s.getNumerator()), s.getDenominator());
     }
 
-    public NewScalar scalarMul(NewScalar s)
+    public Scalar scalarMul(Scalar s)
     {
         return s.scalarMul(this);
     }
-    public NewScalar scalarMul(NewInteger s)
+    public Scalar scalarMul(NewInteger s)
     {
         return new NewInteger(this.getValue() * s.getValue());
     }
-    public NewScalar scalarMul(NewRational s)
+    public Scalar scalarMul(NewRational s)
     {
         return new NewRational((this.getValue() * s.getNumerator()),s.getDenominator());
     }
-    public NewInteger scalerNeg()
+    public NewInteger scalarNeg()
     {
         return new NewInteger(this.getValue()*(-1));
     }
