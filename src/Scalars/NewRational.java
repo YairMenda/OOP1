@@ -1,8 +1,6 @@
 package Scalars;
 
-import java.sql.SQLOutput;
-
-public class NewRational implements NewScalar
+public class NewRational implements Scalar
 {
     private int numerator;
     private int denominator;
@@ -24,31 +22,31 @@ public class NewRational implements NewScalar
     {
         return this.getNumerator()/this.getDenominator();
     }
-    public NewScalar scalarAdd(NewScalar s)
+    public Scalar scalarAdd(Scalar s)
     {
         return s.scalarAdd(this);
     }
-    public NewScalar scalarAdd(NewInteger s)
+    public Scalar scalarAdd(NewInteger s)
     {
         return new NewRational(this.getNumerator()+(this.getDenominator()*s.getValue()),this.getDenominator());
     }
-    public NewScalar scalarAdd(NewRational s)
+    public Scalar scalarAdd(NewRational s)
     {
         return new NewRational(this.getNumerator()*s.getDenominator()+this.getDenominator()*s.getNumerator(),this.getDenominator()*s.getDenominator());
     }
-    public NewScalar scalarMul(NewScalar s)
+    public Scalar scalarMul(Scalar s)
     {
         return s.scalarMul(this);
     }
-    public NewScalar scalarMul(NewInteger s)
+    public Scalar scalarMul(NewInteger s)
     {
         return new NewRational(this.getNumerator()*s.getValue(),this.getDenominator());
     }
-    public NewScalar scalarMul(NewRational s)
+    public Scalar scalarMul(NewRational s)
     {
         return new NewRational(this.getNumerator()*s.getNumerator(),this.getDenominator()*s.getDenominator());
     }
-    public NewRational scalerNeg()
+    public NewRational scalarNeg()
     {
         return new NewRational(this.getNumerator()*(-1),this.getDenominator());
     }

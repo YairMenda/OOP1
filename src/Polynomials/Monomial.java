@@ -1,14 +1,13 @@
 package Polynomials;
 
 import Scalars.NewInteger;
-import Scalars.NewRational;
-import Scalars.NewScalar;
+import Scalars.Scalar;
 
 public class Monomial
 {
     private int exponent;
-    private NewScalar coefficient;
-    public Monomial(int e, NewScalar s) {
+    private Scalar coefficient;
+    public Monomial(int e, Scalar s) {
         this.exponent = e;
         this.coefficient = s;
     }
@@ -23,20 +22,15 @@ public class Monomial
         return new Monomial(this.getExponent()+m.getExponent(),this.coefficient.scalarMul(m.getCoefficient()));
     }
 
-    public NewScalar evaluate(NewScalar s)
+    public Scalar evaluate(Scalar s)
     {
-        return this.evaluate(s);
-    }
-    public NewScalar evaluate(NewInteger n)
-    {
-        return n.scalarPower(this.getExponent()).scalarMul(this.getCoefficient());
-    }
-    public NewScalar evaluate(NewRational r)
-    {
-        return r.scalarPower(this.getExponent()).scalarMul(this.getCoefficient());
+        return s.scalarPower(this.getExponent()).scalarMul(this.getCoefficient());
     }
     public Monomial derivative()
     {
+        if (this.getExponent() == 0)
+            return new Monomial(this.getExponent(),new NewInteger(0));
+
         return new Monomial(this.getExponent()-1,this.getCoefficient().scalarMul(new NewInteger(this.getExponent())));
     }
     public int sign()
@@ -54,9 +48,18 @@ public class Monomial
     }
     public String toString()
     {
-        return this.getCoefficient() + "X^" + this.getExponent();
+        if (this.getCoefficient().equals(new NewInteger(0)))
+            return "";
+
+        if (this.exponent > 1){
+            return this.getCoefficient() + "X^" + this.getExponent();
+        }
+        if (this.exponent == 0)
+            return this.getCoefficient() + "";
+
+        return  this.getCoefficient() + "X";
     }
-    public NewScalar getCoefficient() {
+    public Scalar getCoefficient() {
         return coefficient;
     }
     public int getExponent()
